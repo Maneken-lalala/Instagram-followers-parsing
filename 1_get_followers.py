@@ -1,11 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# Using developers tools we'll need to get the cURL that opens one's followers.
-
-# In[1]:
-
-
 import json
 from pprint import pprint
 import subprocess
