@@ -1,15 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
-заполнить данные по подписчикам: сколько фото, сколько подписок и пр, для того, чтобы определить, является ли профиль ботом
-
-
-# In[4]:
-
-
 import json
 import math
 from pprint import pprint
@@ -70,15 +58,4 @@ with open('followers_filled.csv', 'w') as f:
 end = time.time()
 print(end - start)
 
-
-# In[12]:
-
-
 print((end - start)//60, 'mins and ', round((end - start)%60,1), 'secs')
-
-
-# In[ ]:
-
-
-
-
