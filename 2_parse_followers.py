@@ -1,16 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[3]:
-
-
 import glob
 import json
 from pprint import pprint
 
 
-#we'll parse the files we've created in 1_get_followers.py 
-#and write all the data in a separate file
+#we'll parse the files we've created in 1_get_followers.py and write all the data in a separate document
 files = glob.glob("json/*.json")
 followers = {}
 for file in files:
