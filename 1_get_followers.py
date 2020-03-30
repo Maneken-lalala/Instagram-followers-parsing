@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 import json
 from pprint import pprint
 import subprocess
@@ -19,7 +13,7 @@ url_base = 'https://www.instagram.com/graphql/query/?'
 #we'll generate several lists of users, the index will numerate them
 index = 1
 
-#the variable indicates scrolled pages, is ncessary for the very first iteration,
+#the variable indicates scrolled pages, it is necessary for the very first iteration,
 #as it parses the first page of followers withour scrolling them
 after = None 
 
@@ -42,6 +36,7 @@ while True:
     ws_url = url_base + urllib.parse.urlencode(get_params)
     
     result = subprocess.run(command_template.format(url = ws_url, index = index), shell = True, capture_output = True)
+    
     #an additional check to make sure the request was executed correctly
     if result.returncode != 0:
         exit('Failed request')
@@ -54,7 +49,7 @@ while True:
     if not data['data']['user']['edge_followed_by']['page_info']['has_next_page']:
         break
     
-    #here we are collecting the data and count how many requests are processed
+    #here we collect the data and count how many requests are processed
     after = data['data']['user']['edge_followed_by']['page_info']['end_cursor']
     all_followers = data['data']['user']['edge_followed_by']['count']
     in_current_batch = len(data['data']['user']['edge_followed_by']['edges'])
@@ -65,7 +60,7 @@ while True:
     time.sleep(5 if index % 10 != 0 else 20)
     
     index +=1
-#the document were written, let's see how much time it took    
+#the documents were written, let's see how much time te process took     
 end = time.time()
 print((end - start)//60, 'mins and ', round((end - start)//60, 1), 'secs')
 
